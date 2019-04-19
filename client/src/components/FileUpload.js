@@ -31,11 +31,11 @@ const FileUpload = () => {
               Math.round((progressEvent.loaded * 100) / progressEvent.total)
             )
           );
-
-          // Clear percentage
-          setTimeout(() => setUploadPercentage(0), 10000);
         }
       });
+      
+      // Clear percentage
+      setTimeout(() => setUploadPercentage(0), 10000);
 
       const { fileName, filePath } = res.data;
 
@@ -48,6 +48,7 @@ const FileUpload = () => {
       } else {
         setMessage(err.response.data.msg);
       }
+      setUploadPercentage(0)
     }
   };
 
